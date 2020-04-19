@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/row_container"
+    android:layout_margin="5dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_shop_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/user_icon" />
+
+    <TextView
+        android:id="@+id/tv_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/iv_shop_image"
+        android:layout_toRightOf="@+id/iv_shop_image"
+        android:text="Shop Name"
+        android:textAllCaps="true"
+        android:textColor="@color/blackColor"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_shop_specification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_shop_name"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/iv_shop_image"
+        android:layout_toRightOf="@+id/iv_shop_image"
+        android:text="@string/shop_specification" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_shop_specification"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/iv_shop_image"
+        android:layout_toRightOf="@+id/iv_shop_image"
+        android:drawableStart="@drawable/ic_star"
+        android:drawableLeft="@drawable/ic_star"
+        android:text="--"
+        android:textSize="16sp" />
+
+</RelativeLayout>

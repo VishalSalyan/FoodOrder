@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/home_icon"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/bottom_nearby"
+        android:icon="@drawable/nearby_icon"
+        android:title="@string/nearby" />
+<!--    <item-->
+<!--        android:id="@+id/bottom_wish_list"-->
+<!--        android:icon="@drawable/wishlist_icon"-->
+<!--        android:title="@string/wishlist" />-->
+    <item
+        android:id="@+id/bottom_user"
+        android:icon="@drawable/user_icon"
+        android:title="@string/profile" />
+</menu>

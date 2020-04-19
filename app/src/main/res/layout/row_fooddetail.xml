@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_collection1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="5dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="3dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_foodName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Afghani Food"
+                android:textColor="@color/blackColor"
+                android:textFontWeight="2"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$120"
+                android:textColor="@color/blackColor"
+                android:textFontWeight="2"
+                android:textSize="20dp"
+                />
+            <Button
+                android:id="@+id/addtocart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add   +"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/blackColor"
+                android:textFontWeight="2"
+                android:textSize="15dp"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
