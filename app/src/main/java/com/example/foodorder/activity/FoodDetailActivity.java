@@ -2,10 +2,13 @@ package com.example.foodorder.activity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -50,7 +53,20 @@ public class FoodDetailActivity extends AppCompatActivity {
         initializeNewCarsAdapter();
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void initView() {
         mRecyclerView = findViewById(R.id.food_detail_recyclerView);
         tvShopName = findViewById(R.id.tv_shop_name);

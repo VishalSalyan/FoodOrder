@@ -222,11 +222,11 @@
         android:id="@+id/view_divider_5"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_above="@+id/btn_pay"
+        android:layout_above="@+id/btn_send_money_to_wallet"
         android:background="@color/textGreyColor" />
 
     <Button
-        android:id="@+id/btn_pay"
+        android:id="@+id/btn_send_money_to_wallet"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"

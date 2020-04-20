@@ -7,135 +7,199 @@
     android:padding="10dp"
     tools:context=".activity.AddCardActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_foodName"
+        <LinearLayout
+            android:id="@+id/ll_wallet_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Add Card "
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:visibility="visible">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/your_wallet_balance"
+                android:textColor="@color/blackColor"
+                android:textSize="24sp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:scaleType="fitXY"
-            android:src="@drawable/americancard" />
+            <TextView
+                android:id="@+id/tv_wallet_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:text="@string/balance"
+                android:textColor="@color/blackColor"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:text="@string/card_holder_name"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/add_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/whiteColor"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/add_balance" />
 
-        <EditText
-            android:id="@+id/et_card_holder_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:focusable="true"
-            android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="80dp"
+                android:text="@string/amount_to_pay"
+                android:textColor="@color/blackColor"
+                android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@string/card_number"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="$50"
+                android:textColor="@color/blackColor"
+                android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/et_card_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp" />
+            <Button
+                android:id="@+id/btn_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:background="@color/whiteColor"
+                android:text="@string/pay"
+                android:textColor="@color/blackColor" />
+
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_card_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_foodName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Expiry Date"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/add_card"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/americancard" />
 
             <EditText
-                android:id="@+id/et_expiry_date"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:textSize="20sp" />
+                android:id="@+id/et_add_money"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:hint="@string/add_money"
+                android:inputType="number" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:text="@string/cvv"
+                android:layout_marginTop="40dp"
+                android:text="@string/card_holder_name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/et_cvv"
-                android:layout_width="55dp"
+                android:id="@+id/et_card_holder_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:gravity="center"
+                android:layout_gravity="center"
+                android:focusable="true"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="@string/card_number"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_card_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Expiry Date"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/et_expiry_date"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/cvv"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_cvv"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_send_money_to_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/textColor"
+                android:text="@string/add_money_to_wallet"
+                android:textColor="@color/blackColor"
                 android:textSize="20sp" />
 
         </LinearLayout>
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/total_amount"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/blackColor"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/btn_pay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@color/textColor"
-            android:text="@string/pay"
-            android:textColor="@color/blackColor"
-            android:textSize="20sp" />
     </LinearLayout>
-
 </ScrollView>

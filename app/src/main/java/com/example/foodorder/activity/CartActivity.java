@@ -4,12 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +45,20 @@ public class CartActivity extends AppCompatActivity {
         initViewsWithData();
         clickListeners();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void clickListeners() {
         et_quantity.setEnabled(false);
         btn_minus.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +133,7 @@ public class CartActivity extends AppCompatActivity {
         btn_minus = findViewById(R.id.btn_minus);
         et_quantity = findViewById(R.id.et_quantity);
         btn_plus = findViewById(R.id.btn_plus);
-        btn_pay = findViewById(R.id.btn_pay);
+        btn_pay = findViewById(R.id.btn_send_money_to_wallet);
     }
 
 

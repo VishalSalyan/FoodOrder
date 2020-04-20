@@ -60,6 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
                 userData.setName(userName);
                 userData.setPhoneNumber(phoneNumber);
                 userData.setPassword(password);
+                userData.setWalletBalance(1000);
 
                 if (password.equals(confirmPassword)) {
                     FireBaseRepo.I.signUp(userData, new ServerResponse<Boolean>() {

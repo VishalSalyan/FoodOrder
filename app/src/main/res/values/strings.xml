@@ -56,4 +56,12 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="your_wallet_balance">Your Wallet Balance</string>
+    <string name="add_balance">Add Balance</string>
+    <string name="amount_to_pay">Amount to Pay</string>
+    <string name="balance">Balance</string>
+    <string name="add_card">Add Card</string>
+    <string name="add_money_to_wallet">Add money to wallet</string>
+    <string name="add_money">Add Money</string>
+    <string name="log_out">Log Out</string>
 </resources>

@@ -337,4 +337,49 @@ public class FireBaseRepo {
         });
     }
 
+    public void setMoneyToWallet(final String email, final int amountValue, final ServerResponse<String> serverResponse) {
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    final UserData userData = snapshot.getValue(UserData.class);
+                    assert userData != null;
+                    if (userData.getEmail().equals(email)) {
+                        String key = snapshot.getKey();
+                        assert key != null;
+                        userRef.child(key).child("walletBalance").setValue(amountValue).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            UserData user = snapshot.getValue(UserData.class);
+                                            assert user != null;
+                                            if (user.getEmail().equals(email)) {
+                                                SessionData.getInstance().saveLocalData(user);
+                                                serverResponse.onSuccess("Money added successfully");
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+                            }
+                        });
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                serverResponse.onFailure(new Throwable(databaseError.getMessage()));
+            }
+        });
+    }
 }

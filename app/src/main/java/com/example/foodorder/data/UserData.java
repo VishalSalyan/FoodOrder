@@ -10,7 +10,8 @@ public class UserData {
     private String password = null;
     private String gender = null;
     private String userName = null;
-    private String userImage= null;
+    private String userImage = null;
+    private int walletBalance = 0;
     private ArrayList<WishListData> favouriteFoods = new ArrayList<>();
 
     public String getUserImage() {
@@ -76,5 +77,13 @@ public class UserData {
     public void setUserName(String userName) {
 
         this.userName = userName;
+    }
+
+    public int getWalletBalance() {
+        return walletBalance;
+    }
+
+    public void setWalletBalance(int walletBalance) {
+        this.walletBalance = walletBalance;
     }
 }

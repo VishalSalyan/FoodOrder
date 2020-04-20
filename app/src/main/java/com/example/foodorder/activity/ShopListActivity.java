@@ -2,7 +2,10 @@ package com.example.foodorder.activity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,5 +85,20 @@ public class ShopListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         shopListAdapter = new ShopListAdapter(ShopListActivity.this, shopList);
         recyclerView.setAdapter(shopListAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

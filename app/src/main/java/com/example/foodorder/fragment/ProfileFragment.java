@@ -3,6 +3,7 @@ package com.example.foodorder.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,15 +14,22 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.brouding.simpledialog.SimpleDialog;
 import com.example.foodorder.R;
+import com.example.foodorder.activity.LoginActivity;
 import com.example.foodorder.data.UserData;
 import com.example.foodorder.firebaseRepo.FireBaseRepo;
 import com.example.foodorder.firebaseRepo.ServerResponse;
 import com.example.foodorder.utils.SessionData;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
+import static com.example.foodorder.utils.GoTo.go;
 import static com.example.foodorder.utils.Toasts.show;
 
 
@@ -30,7 +38,7 @@ public class ProfileFragment extends Fragment {
     private static final int REQUEST_CODE = 100;
 
     private EditText etPhoneNumber, etUserName, etEmail, etFullName;
-    private Button btnUpdate;
+    private Button btnUpdate, btnLogOut;
     private ImageView imageView;
     private RadioButton rbFemale, rbMale;
     private String gender = null;
@@ -63,6 +71,8 @@ public class ProfileFragment extends Fragment {
         rbFemale = view.findViewById(R.id.radioFemale);
         rbMale = view.findViewById(R.id.radioMale);
         btnUpdate = view.findViewById(R.id.btn_update);
+        btnLogOut = view.findViewById(R.id.btn_log_out);
+
         setData();
         setEditTextEditable(false);
 
@@ -127,8 +137,36 @@ public class ProfileFragment extends Fragment {
                 }
             }
         });
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                showLogOutDialog();
+            }
+        });
 
         return view;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void showLogOutDialog() {
+        new SimpleDialog.Builder(Objects.requireNonNull(getActivity()))
+                .setTitle("Log Out")
+                .setContent("Are you Sure ?")
+                .setBtnConfirmText("Log Out")
+                .setBtnCancelText("Cancel")
+                .setCancelable(true)
+                .onConfirm(new SimpleDialog.BtnCallback() {
+                    @Override
+                    public void onClick(@NonNull SimpleDialog dialog, @NonNull SimpleDialog.BtnAction which) {
+                        SessionData.getInstance().saveLogin(false);
+                        SessionData.getInstance().clearSessionData();
+                        go.to(getActivity(), LoginActivity.class);
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+
     }
 
     private void setEditTextEditable(boolean isEditable) {
